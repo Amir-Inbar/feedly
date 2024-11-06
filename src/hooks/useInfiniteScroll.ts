@@ -4,6 +4,7 @@ import useFeedStore from "../store/actions/feed"; // Adjust according to your fi
 
 const useInfiniteScroll = () => {
     const [skip, setSkip] = useState(0);
+    const [endOfFeed, setEndOfFeed] = useState(false);
     const {data: response, isFetching, isSuccess} = useFetchFeedQuery(skip);
     const {setPosts} = useFeedStore();
 
@@ -14,10 +15,14 @@ const useInfiniteScroll = () => {
     }, [response, isSuccess, setPosts]);
 
     const loadMore = () => {
+        if (!response?.hasMore) {
+            setEndOfFeed(true);
+            return;
+        }
         setSkip((prev) => prev + 1);
     };
 
-    return {loadMore, isFetching};
+    return {loadMore, isFetching, endOfFeed};
 };
 
 export default useInfiniteScroll;
