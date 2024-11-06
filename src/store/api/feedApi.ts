@@ -10,9 +10,14 @@ export const feedApi = createApi({
         baseUrl: API_HOST,
     }), endpoints: (builder) => ({
         fetchFeed: builder.query<Feed, number>({
-            query: (skip) => `/feed.json?skip=${skip * POSTS_PER_PAGE}&limit=${POSTS_PER_PAGE}`,
+            query: (skip) => `hw/feed.json?skip=${skip * POSTS_PER_PAGE}&limit=${POSTS_PER_PAGE}`,
+        }),
+        postImpression: builder.mutation<void, { postId: string }>({
+            query: ({postId}) => ({
+                url: `?itemId=${postId}`,
+            }),
         }),
     }),
 });
 
-export const {useFetchFeedQuery} = feedApi;
+export const {useFetchFeedQuery, usePostImpressionMutation} = feedApi;
