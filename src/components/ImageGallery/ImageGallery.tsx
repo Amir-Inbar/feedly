@@ -18,51 +18,140 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({images}) => {
         </div>
     );
 
-    const renderMultipleImages = () => {
-        const gridClasses = () => {
-            if (images.length === 2) return 'grid-cols-2';
-            if (images.length === 3) return 'grid-cols-2 grid-rows-[auto,1fr]';
-            return 'grid-cols-2 grid-rows-2';
-        };
-
-        return (
-            <div
-                className={`grid gap-1 ${gridClasses()} max-h-[517px] overflow-hidden`}
-                style={{
-                    gridTemplateColumns: images.length === 3 ? '1fr 1fr' : 'repeat(2, minmax(150px, 1fr))',
-                    gridTemplateRows: images.length === 3 ? 'auto 1fr' : undefined,
-                }}
-            >
-                {displayedImages.map((image, index) => (
-                    <div
-                        key={index}
-                        className={`relative ${
-                            index === 0 && images.length === 3 ? 'col-span-2' : ''
-                        }`}
-                        style={{
-                            maxWidth: '100%',
-                        }}
-                    >
-                        <img
-                            src={image}
-                            alt={`gallery-${index}`}
-                            className="w-full h-full object-contain"
-                        />
-                        {index === 3 && remainingCount > 0 && (
-                            <div
-                                className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center rounded-lg">
-                            <span className="text-white text-2xl font-semibold">
-                                +{remainingCount}
-                            </span>
-                            </div>
-                        )}
-                    </div>
-                ))}
+    const renderTwoImages = () => (
+        <div className="grid grid-cols-2 gap-1">
+            {displayedImages.map((image, index) => (
+                <div key={index} className={`img `}>
+                    <img
+                        src={image}
+                        alt={`gallery-${index}`}
+                        className="w-full h-full object-contain"
+                    />
+                </div>
+            ))}
+        </div>
+    );
+    const renderThreeImages = () => (
+        <div className="flex flex-col gap-1 max-h-[780px]">
+            <div className="flex-2 overflow-hidden">
+                <img
+                    src={displayedImages[0]}
+                    alt="gallery-0"
+                    className="w-full h-full object-cover"
+                />
             </div>
-        );
-    };
+            <div className="flex flex-2 gap-1">
+                <div className="flex-2 overflow-hidden">
+                    <img
+                        src={displayedImages[1]}
+                        alt="gallery-1"
+                        className="w-full h-full object-cover"
+                    />
+                </div>
+                <div className="flex-2 overflow-hidden ">
+                    <img
+                        src={displayedImages[2]}
+                        alt="gallery-2"
+                        className="w-full h-full object-cover"
+                    />
+                </div>
+            </div>
+        </div>
+    );
 
-    return <div className="grid gap-1">{images.length === 1 ? renderSingleImage() : renderMultipleImages()}</div>;
+
+    const renderFourImages = () => (
+        <div className="grid grid-cols-2 grid-rows-2 gap-1">
+            <div className={`img_4_1 img  `}>
+                <img
+                    src={displayedImages[0]}
+                    alt="gallery-0"
+                    className="w-full h-full object-contain"
+                />
+            </div>
+            <div className={`img_4_2 img  `}>
+                <img
+                    src={displayedImages[1]}
+                    alt="gallery-1"
+                    className="w-full h-full object-contain"
+                />
+            </div>
+            <div className={`img_4_3 img  `}>
+                <img
+                    src={displayedImages[2]}
+                    alt="gallery-2"
+                    className="w-full h-full object-contain"
+                />
+            </div>
+            <div className={`img_4_4 img  `}>
+                <img
+                    src={displayedImages[3]}
+                    alt="gallery-3"
+                    className="w-full h-full object-contain"
+                />
+            </div>
+        </div>
+    );
+
+    const renderFiveImages = () => (
+        <div className="flex flex-col gap-1 max-h-[780px]">
+            <div className="flex flex-1 gap-1">
+                <div className="flex-2 overflow-hidden ">
+                    <img
+                        src={displayedImages[1]}
+                        alt="gallery-1"
+                        className="w-full h-full object-cover"
+                    />
+                </div>
+                <div className="flex-2 overflow-hidden ">
+                    <img
+                        src={displayedImages[2]}
+                        alt="gallery-2"
+                        className="w-full h-full object-cover"
+                    />
+                </div>
+            </div>
+            <div className='flex flex-1 h-full'>
+                <div className={`flex-2 img_5_3 img col-span-2`}>
+                    <img
+                        src={displayedImages[2]}
+                        alt="gallery-2"
+                        className="w-full h-full object-cover"
+                    />
+                </div>
+                <div className={`flex-2 img_5_4 img col-span-1`}>
+                    <img
+                        src={displayedImages[3]}
+                        alt="gallery-3"
+                        className="w-full h-full object-cover"
+                    />
+                </div>
+                <div className={`flex-2 img_5_5 img col-span-1`}>
+                    <img
+                        src={displayedImages[4]}
+                        alt="gallery-4"
+                        className="w-full h-full object-cover"
+                    />
+                </div>
+            </div>
+        </div>
+    );
+
+
+    return (
+        <div className="grid gap-1">
+            {images.length === 1 ? renderSingleImage() :
+                images.length === 2 ? renderTwoImages() :
+                    images.length === 3 ? renderThreeImages() :
+                        images.length === 4 ? renderFourImages() :
+                            images.length === 5 ? renderFiveImages() : null}
+            {remainingCount > 0 && (
+                <div className={`show_more_img `}>
+                    <div className="show_more_text">+{remainingCount}</div>
+                </div>
+            )}
+        </div>
+    );
 };
 
 export default ImageGallery;

@@ -35,6 +35,9 @@ importers:
       react-fb-image-grid:
         specifier: ^0.1.5
         version: 0.1.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react-fb-image-video-grid:
+        specifier: ^0.1.10
+        version: 0.1.10(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-grid-gallery:
         specifier: ^1.0.1
         version: 1.0.1(react@18.3.1)
@@ -1416,6 +1419,12 @@ packages:
     resolution: {integrity: sha512-adpTA2xYXBkXW3EJwwDA8vSrrmi82WPQskPXihbcOnkE/VY+wNeEx0obL3IeqJtYDdpYZTz1G4i9QiMZvYeQrA==}
     peerDependencies:
       react: 16.x
+
+  react-fb-image-video-grid@0.1.10:
+    resolution: {integrity: sha512-z6Oh4OCikwgVFWquihxlp+neTyaIiq7tEi68d79kVlctcdkR58MPlQc2Vf5KMbxQSO5G99LviZjB6V8VgXkqJg==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      react: '>=16'
 
   react-grid-gallery@1.0.1:
     resolution: {integrity: sha512-+fVd6fH9tm0W+UMgzRHET/gmzSs2/l2sGOuELLaHXMto6UhuZdscj9ILHOYe7hn0GBRUJiczMllsEs7OJz9uPA==}
@@ -3042,6 +3051,13 @@ snapshots:
       react: 18.3.1
       react-bootstrap: 0.32.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-image-lightbox: 5.1.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+    transitivePeerDependencies:
+      - react-dom
+
+  react-fb-image-video-grid@0.1.10(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+    dependencies:
+      react: 18.3.1
+      react-modal: 3.16.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     transitivePeerDependencies:
       - react-dom
 
