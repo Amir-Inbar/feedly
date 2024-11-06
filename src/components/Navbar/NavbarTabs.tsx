@@ -2,7 +2,7 @@ import {Icon} from "@iconify/react";
 import React, {useState} from "react";
 
 const navItems = [
-    {label: 'Home', icon: 'prime:home', value: 'home'},
+    {label: 'Home', icon: 'custom:home', value: 'home'},
     {label: 'Messages', icon: 'lucide:message-circle', value: 'messages'},
     {label: 'Notifications', icon: 'ion:notifications-outline', value: 'notifications'},
 ];
@@ -21,7 +21,7 @@ export const NavbarTabs: React.FC = () => {
                     }`}
                     onClick={() => setActiveItem(item.value)}
                 >
-                    <Icon icon={item.icon} fontSize={20} className="mr-1"/>
+                    <Icon icon={item.icon} fontSize={18} className="mr-2.5 mb-0"/>
                     {item.label}
                 </div>
 
