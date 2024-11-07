@@ -4,7 +4,7 @@
 
 ### Feed UI Features
 
-- **Infinite Scrolling:** Load the next 6 items as the user reaches the bottom of the feed.
+- **Infinite Scrolling:** Load the next 6 items as the user reaches the bottom of the feed with 1000ms debounce.
 - **Feed Content:** Presenting post details
 - **Like Button:**
     - Users can like/unlike posts.
@@ -52,14 +52,20 @@ To run this application locally, follow these steps:
 
    ```
 
-4. Start the Frontend development server
+4. Create .env file with your VITE_API_HOST
+
+   ```bash
+    VITE_API_HOST=http://localhost:3000
+   ```
+
+5. Start the Frontend development server
 
    ```bash
    pnpm run dev
 
    ```
 
-5. The Frontend will run on http://localhost:3000
+6. The Frontend will run on http://localhost:3000
 
 ## Authors
 
