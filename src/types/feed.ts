@@ -1,21 +1,21 @@
 export interface Post {
-    id: string;
-    userId: string;
-    username: string;
-    avatar: string;
-    shopName: string;
-    shopId: string;
-    images: string[];
-    comments: number;
-    date: string;
-    text: string;
-    likes: number;
-    didLike: boolean;
-    premium: boolean;
+  id: string;
+  userId: string;
+  username: string;
+  avatar: string;
+  shopName: string;
+  shopId: string;
+  images: string[];
+  comments: number;
+  date: string;
+  text: string;
+  likes: number;
+  didLike: boolean;
+  premium: boolean;
 }
 
 
 export interface Feed {
-    data: Post[];
-    hasMore: boolean;
+  data: Post[];
+  hasMore: boolean;
 }

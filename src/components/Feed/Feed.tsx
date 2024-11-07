@@ -45,15 +45,17 @@ const Feed: React.FC = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+
   return (
     <InfiniteScroll
       dataLength={posts.length}
+      style={{ overflow: 'hidden' }}
       next={loadMore}
       hasMore={!isFetching && !endOfFeed}
       loader={<Loader />}
       className="flex flex-col gap-2"
       endMessage={
-        <p
+        endOfFeed && <p
           className="text-center pb-4 cursor-pointer text-gray-500"
           onClick={onScrollToStart}
         >
