@@ -21,11 +21,10 @@
 - [TypeScript](https://www.typescriptlang.org)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Redux Toolkit](https://redux-toolkit.js.org/)
+- [react-fb-image-video-grid](https://www.npmjs.com/package/react-fb-image-video-grid)
 - [Zustand](https://github.com/pmndrs/zustand)
 - [Framer Motion](https://www.framer.com/motion/)
 - [React Infinite Scroll](https://www.npmjs.com/package/react-infinite-scroll-component)
-- [React Image Lightbox](https://www.npmjs.com/package/react-image-lightbox)
-- [React Grid Gallery](https://www.npmjs.com/package/react-grid-gallery)
 - [@Iconify React](https://github.com/iconify/react)
 - [ESLint](https://eslint.org)
 
